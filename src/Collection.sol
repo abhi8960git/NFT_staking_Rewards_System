@@ -1,9 +1,11 @@
 // SPDX-License-Identifier: MIT LICENSE
+pragma solidity ^0.8.19;
 
 import "openzeppelin-contracts/contracts/access/Ownable.sol";
 import "openzeppelin-contracts/contracts/token/ERC721/extensions/ERC721Enumerable.sol";
-import "openzeppelin-contracts/contracts/utils/Strings.sol"
-pragma solidity ^0.8.4;
+import "openzeppelin-contracts/contracts/utils/Strings.sol";
+
+
 
 contract Collection is ERC721Enumerable, Ownable {
     
@@ -14,7 +16,7 @@ contract Collection is ERC721Enumerable, Ownable {
     uint256 public maxMintAmount = 5;
     bool public paused = false;
 
-    constructor() ERC721("Net2Dev NFT Collection", "N2D") {}
+    constructor() ERC721("Net2Dev NFT Collection", "N2D")Ownable(msg.sender) {}
 
     /**
      * @notice Internal function to return the base URI for the tokens.
